@@ -12,14 +12,22 @@ Pré-requis
 Vous avez besoin :
 * D'une connexion internet 
 * De java 6, 7 ou 8 (vous pouvez le vérifier en lançant java -version)
-* Un éditeur de texte (nous recommandons sublime-text)
+* De [Sublime Text 3](http://www.sublimetext.com/) (attendu par un fichier batch)
+* De [git](https://git-scm.com/downloads)
+
+Cloner le projet
+------------
+```git clone https://github.com/LePuppy/dans-s-cas-la-devoxx.git```
 
 Lancer le Hands-on
 ------------
 
+```cd dans-s-cas-la-devoxx```
+
 Vous pouvez lancer le hands-on en tapant 
-* ```./handson``` sous linux/mac
-* ```handson.bat``` sous windows 
+```init.bat``` (Windows)
+
+Ce fichier va vous demander les droits d'admin afin d'ajouter Sublime Text au PATH pour ouvrir automatiquement l'éditeur de texte lorsque vous lancez le projet. Il exécute ensuite ```handson.bat``` qui lance le coeur du projet.
 
 Ces scripts lancent SBT (scala build tool) en arrière plan préconfiguré avec des commandes pour jouer le hands-on. La commande principale est : 
 
