@@ -6,37 +6,37 @@
 
 @setlocal
 
+chcp 65001
 set SBT_HOME=%~dp0
 
+
 @echo off
+echo ~ Bienvenue ~
 set /p REPONSE="Premiere fois(P)/Reprendre(R): "
 
 if %REPONSE% == P (
     start sublime.exe "%SBT_HOME%\src\test\scala\partie1-1\e0_vars_vals.scala"
     echo Sublime Text s'ouvre avec le dernier fichier edite. Ouvrez les prochains exercices lorsque vous avancez.
     echo               --------
-    echo Vous pouvez fermer l'autre invite de commandes.
+    echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et observez le statut du test qui se met à jour.
     echo               --------
-    echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et verifiez les resultas ci-dessous.
+    echo Le nom de l'exercice en cours se situe sous le statut du test.
+    echo TEST FAILED : au moins l'un des tests de l'exercice en cours est faux.
+    echo TEST PENDING : Vous n'avez pas modifie les '_' ou les '???' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
     echo               --------
-    echo Rappel :
-    echo TEST FAILED : au moins un des tests de l'exercice en cours est faux. Des indications sont affichees plus bas.
-    echo TEST PENDING : Vous n'avez pas modifie les '_' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
-    echo               --------
-    echo Le premier exercice devrait s'ouvrir dans Sublime Text.
+    echo Appuyez sur Enter pour sortir des tests et tapez "exit" pour quitter.
     echo               --------
 ) else (
-	echo cas 2
     start sublime.exe
     echo Sublime Text s'ouvre avec le dernier fichier edite. Ouvrez les prochains exercices lorsque vous avancez.
     echo               --------
-    echo Vous pouvez fermer l'autre invite de commandes.
+    echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et observez le statut du test qui se met à jour.
     echo               --------
-    echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et verifiez les resultas ci-dessous.
+    echo Le nom de l'exercice en cours se situe sous le statut du test.
+    echo TEST FAILED : au moins l'un des tests de l'exercice en cours est faux.
+    echo TEST PENDING : Vous n'avez pas modifie les '_' ou les '???' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
     echo               --------
-    echo Rappel :
-    echo TEST FAILED : au moins un des tests de l'exercice en cours est faux. Des indications sont affichees plus bas.
-    echo TEST PENDING : Vous n'avez pas modifie les '_' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
+    echo Appuyez sur Enter pour sortir des tests et tapez "exit" pour quitter.
     echo               --------
 )
 
@@ -47,7 +47,7 @@ REM Check if Sublime Text is already in PATH and add it if not
 set SBT_HOME=%~dp0
 set ERROR_CODE=0
 
-chcp 65001
+
 
 rem We use the value of the JAVACMD environment variable if defined
 set _JAVACMD=%JAVACMD%
