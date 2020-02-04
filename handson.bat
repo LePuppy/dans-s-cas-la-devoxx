@@ -11,38 +11,17 @@ set SBT_HOME=%~dp0
 
 @echo off
 echo ~ Bienvenue ~
-set /p REPONSE="Premiere fois(P)/Reprendre(R): "
-
-if %REPONSE% == P (
-    REM Ouverture du premier exercice avec Sublime si installe, sinon ouvre avec le notepad
-    start sublime.exe "%SBT_HOME%\src\test\scala\partie1-1\e0_vars_vals.scala"
-    IF %ERRORLEVEL% NEQ 0 start notepad.exe "%SBT_HOME%\src\test\scala\partie1-1\e0_vars_vals.scala"
-    
-    echo Sublime Text s'ouvre avec le dernier fichier edite. Ouvrez les prochains exercices lorsque vous avancez.
-    echo               --------
-    echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et observez le statut du test qui se met à jour.
-    echo               --------
-    echo Le nom de l'exercice en cours se situe sous le statut du test.
-    echo TEST FAILED : au moins l'un des tests de l'exercice en cours est faux.
-    echo TEST PENDING : Vous n'avez pas modifie les '_' ou les '???' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
-    echo               --------
-    echo Appuyez sur Enter pour sortir des tests et tapez "exit" pour quitter.
-    echo               --------
-) else (
-    start sublime.exe
-    IF %ERRORLEVEL% NEQ 0 Echo Sublime text n'etant pas installe, il faut aller ouvrir l'exercice en cours dans votre editeur
-   
-    echo Sublime Text s'ouvre avec le dernier fichier edite. Ouvrez les prochains exercices lorsque vous avancez.
-    echo               --------
-    echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et observez le statut du test qui se met à jour.
-    echo               --------
-    echo Le nom de l'exercice en cours se situe sous le statut du test.
-    echo TEST FAILED : au moins l'un des tests de l'exercice en cours est faux.
-    echo TEST PENDING : Vous n'avez pas modifie les '_' ou les '???' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
-    echo               --------
-    echo Appuyez sur Enter pour sortir des tests et tapez "exit" pour quitter.
-    echo               --------
-)
+echo Executer go pour lancer le projet.
+echo               --------
+echo Ouvrir les exercices avec votre éditeur de texte à : dans-s-cas-la/src/test/scala
+echo Le nom de l'exercice en cours se situe sous le statut du test.
+echo               --------
+echo Lorsque vous avez effectue vos modifications, enregistrez les et observez le statut du test qui se met à jour :
+echo TEST FAILED : au moins l'un des tests de l'exercice en cours est faux.
+echo TEST PENDING : Vous n'avez pas modifie les '_' ou les '???' de l'exercice OU les tests de l'exercice en cours sont tous justes et vous pouvez passer a la suite.
+echo               --------
+echo Appuyez sur Enter pour sortir des tests et tapez "exit" pour quitter.
+echo               --------
 
 @echo off
 
