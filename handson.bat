@@ -9,13 +9,15 @@
 chcp 65001
 set SBT_HOME=%~dp0
 
-
 @echo off
 echo ~ Bienvenue ~
 set /p REPONSE="Premiere fois(P)/Reprendre(R): "
 
 if %REPONSE% == P (
+    REM Ouverture du premier exercice avec Sublime si installe, sinon ouvre avec le notepad
     start sublime.exe "%SBT_HOME%\src\test\scala\partie1-1\e0_vars_vals.scala"
+    IF %ERRORLEVEL% NEQ 0 start notepad.exe "%SBT_HOME%\src\test\scala\partie1-1\e0_vars_vals.scala"
+    
     echo Sublime Text s'ouvre avec le dernier fichier edite. Ouvrez les prochains exercices lorsque vous avancez.
     echo               --------
     echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et observez le statut du test qui se met à jour.
@@ -28,6 +30,8 @@ if %REPONSE% == P (
     echo               --------
 ) else (
     start sublime.exe
+    IF %ERRORLEVEL% NEQ 0 Echo Sublime text n'etant pas installe, il faut aller ouvrir l'exercice en cours dans votre editeur
+   
     echo Sublime Text s'ouvre avec le dernier fichier edite. Ouvrez les prochains exercices lorsque vous avancez.
     echo               --------
     echo Executer go pour lancer le projet. Lorsque vous avez effectue vos changements de code sur Sublime Text, enregistrez les et observez le statut du test qui se met à jour.
