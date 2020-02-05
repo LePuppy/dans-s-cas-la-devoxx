@@ -74,7 +74,7 @@ class e3_un_sac_covariant extends HandsOnSuite {
     val petitSacDeZero = Sac(0)
 
     petitSacDeZero.map(x => x + 1) match {
-      case SacPlein(contenu)  =>  contenu should be(1)
+      case SacPlein(contenu)  =>  contenu should be(__)
 
       case _ => fail("cela ne doit pas être un sac vide")
     }
@@ -94,7 +94,7 @@ class e3_un_sac_covariant extends HandsOnSuite {
 
     combinaison match {
       case SacPlein(contenu) => {
-        contenu should be("0A")
+        contenu should be(__)
       }
       case _ => fail("cela ne doit pas être un sac vide")
     }

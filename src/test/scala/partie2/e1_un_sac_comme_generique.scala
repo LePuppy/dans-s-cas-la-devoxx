@@ -16,7 +16,7 @@ class e1_un_sac_comme_generique  extends  HandsOnSuite {
   exercice("Un peu comme avant, l'application de fonction dans le conteneur") {
     val petitSacDeZero = Sac(0)
 
-    petitSacDeZero.map(x => x + 1).contenu should be(1)
+    petitSacDeZero.map(x => x + 1).contenu should be(__)
 
   }
 
@@ -29,7 +29,7 @@ class e1_un_sac_comme_generique  extends  HandsOnSuite {
     val combinaison = for (p <- petitSacDeZero; g <- grandSacDeA) yield { p.toString + g}
 
 
-    combinaison.contenu should be("0A")
+    combinaison.contenu should be(__)
   }
 
 }

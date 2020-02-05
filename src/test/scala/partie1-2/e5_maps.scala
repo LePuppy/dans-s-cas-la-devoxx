@@ -14,7 +14,7 @@ import support.HandsOnSuite
 class e5_maps extends HandsOnSuite {
 
   /**
-  * Création toute bête d’une map et première opérations
+  * Création toute bête d’une map et premières opérations
   */
   exercice("C’est facile de créer une map !") {
     val myMap = Map("PA" -> "Paris", "BE" -> "Besançon", "BL" -> "Belfort")

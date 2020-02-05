@@ -12,12 +12,13 @@ Pré-requis
 Vous avez besoin :
 * D'une connexion internet 
 * De java 6, 7 ou 8 (vous pouvez le vérifier en lançant java -version)
-* D'un éditeur de texte. Nous recommandons fortement [Sublime Text 3](http://www.sublimetext.com/).
-* De [git](https://git-scm.com/downloads)
+* D'un éditeur de texte. Nous recommandons [Sublime Text 3](http://www.sublimetext.com/).
 
 Cloner le projet
 ------------
 ```git clone https://github.com/LePuppy/dans-s-cas-la-devoxx.git```
+
+ou télécharger [ici](https://github.com/LePuppy/dans-s-cas-la-devoxx.git)
 
 Lancer le Hands-on
 ------------

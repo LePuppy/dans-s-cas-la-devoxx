@@ -3,7 +3,7 @@ package pas_suivant
 import support.HandsOnSuite
 
 /**
-*   Les fonctions de plus haut niveau.
+*   Les fonctions de plus haut niveau (high-order functions en anglais)
 *
 *   Les fonctions d’ordre supérieur sont des fonctions qui peuvent prendre des fonctions
 *   comme paramètre, et/ou peuvent retourner des fonctions.
@@ -62,7 +62,7 @@ class e8_fonctions_de_plus_haut_niveau extends HandsOnSuite {
       }
     }
 
-    addWithoutSyntaxSugar(1)(2) should be(__)
+    //addWithoutSyntaxSugar(1)(2) should be(__)
 
     //ou plus simplement
     def add(x: Int) = (y: Int) => x + y
@@ -82,7 +82,7 @@ class e8_fonctions_de_plus_haut_niveau extends HandsOnSuite {
     def makeWhatEverYouLike(xs: List[String], sideEffect: String => String) = {
       xs map sideEffect
     }
-    makeUpper(List("abc", "xyz", "123")) should be(List("ABC", "XYZ", "123"))
+    makeUpper(List("abc", "xyz", "123")) should be(__)
 
     makeWhatEverYouLike(List("ABC", "XYZ", "123"), {
       x => x.toLowerCase
@@ -103,8 +103,8 @@ class e8_fonctions_de_plus_haut_niveau extends HandsOnSuite {
     // attention au caractère '_' 
     // qui indique au compilateur qu’il ne faut pas appliquer la fonction mais y faire référence
     val multiplyCurried = (multiply _).curried
-    multiply(4, 5) should be(__)
-    multiplyCurried(4)(5) should be(__)
+    multiply(6, 9) should be(__)
+    multiplyCurried(6)(9) should be(__)
   }
 
 

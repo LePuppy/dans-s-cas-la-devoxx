@@ -32,11 +32,15 @@ class e2_case_classes extends HandsOnSuite {
     val d2 = MonChien("Rex", "Custom")
     val d3 = new MonChien("Scooby", "Doberman") // Cela marche aussi avec new, mais on peut s'en passer !
     val d4 = MonChien.apply("Rex", "Custom") // utilisation de la méthode apply
+    val d5 = MonChien("Scooby", "Golden Retreiver")
+    val d6 = MonChien.apply("Rex", "Doberman")
 
     (d1 == d3) should be(__)
     (d1 == d2) should be(__)
     (d2 == d3) should be(__)
     (d2 == d4) should be(__)
+    (d1 == d5) should be(__)
+    (d3 == d6) should be(__)
   }
 
   /**
@@ -46,8 +50,8 @@ class e2_case_classes extends HandsOnSuite {
     case class Personne(prenom: String, nom: String)
 
     val p1 = new Personne("Martin", "Odersky")
-    val p2 = new Personne("Emmanuel" , "Bernard")
-    val p3 = new Personne("Martin", "Odersky")
+    val p2 = Personne("Emmanuel" , "Bernard")
+    val p3 = Personne.apply("Martin", "Odersky")
 
     // en fait, == en Scala est un appel à .equals de Java
     (p1 == p2) should be(__)
@@ -61,7 +65,7 @@ class e2_case_classes extends HandsOnSuite {
   /**
   * La méthode hashcode
   */
-  exercice("Les case classes ont une méthode hascode qui marche (de base)") {
+  exercice("Les case classes ont une méthode hashcode qui marche (de base)") {
     case class Personne(prenom: String, nom: String)
 
     val p1 = new Personne("Iron", "Man")
@@ -80,8 +84,11 @@ class e2_case_classes extends HandsOnSuite {
     case class MonChien(nom: String, race: String)
 
     val d1 = MonChien("Scooby", "Doberman")
+    val d5 = MonChien("Scooby", "Golden Retreiver")
     d1.nom should be(__)
     d1.race should be(__)
+    (d1.nom == d5.nom) should be(__)
+    (d1.race == d5.race) should be(__)
 
     // Que se passe-t-il ?
     //d1.nom = "Scooby Doo"
@@ -122,19 +129,19 @@ class e2_case_classes extends HandsOnSuite {
     // une copie avec des paramètres nommés
     val p4 = p3.copy(age = 23)
 
-    p1.prenom should be("Sherlock")
-    p1.nom should be("Holmes")
-    p1.age should be(23)
+    p1.prenom should be(__)
+    p1.nom should be(__)
+    p1.age should be(__)
     p1.tel should be(__)
 
-    p2.prenom should be("Doctor")
+    p2.prenom should be(__)
     p2.nom should be(__)
-    p2.age should be(0)
+    p2.age should be(__)
     p2.tel should be(__)
 
     p3.prenom should be(__)
-    p3.nom should be("Professor")
-    p3.age should be(0)
+    p3.nom should be(__)
+    p3.age should be(__)
     p3.tel should be(__)
 
     (p3 == p4) should be(__)

@@ -31,6 +31,7 @@ class e0_vars_vals extends HandsOnSuite {
     anchor(a)
 
     a should be(__)
+
   }
 
   exercice("Par contre les vals sont immuables (équivalent de final Java), elles ne peuvent pas être réaffectées") {
@@ -43,6 +44,5 @@ class e0_vars_vals extends HandsOnSuite {
     */
     // Que se passe-t-il lorsque l'on ajoute ces lignes ?
     // a = 7
-    // a should be (7)
   }
 }

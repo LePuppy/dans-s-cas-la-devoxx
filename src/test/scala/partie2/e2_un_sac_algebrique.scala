@@ -12,7 +12,7 @@ class e2_un_sac_algebrique extends HandsOnSuite {
 
   /*
   *   Alors là vous avez peut-être remarqué les mots sealed et trait :
-  *     - trait un le mot-clé utilisé pour définir une l'équivalent d'une interface en Java.
+  *     - trait est le mot-clé utilisé pour définir l'équivalent d'une interface en Java.
   *       Il est cependant possible d'implémenter des méthodes dans un trait.
   *
   *     - sealed est un mot clé utilisé devant un trait. Le compilateur ne regardera que les case classes
@@ -94,7 +94,7 @@ class e2_un_sac_algebrique extends HandsOnSuite {
 
     combinaison match {
       case SacPlein(contenu) => {
-        contenu should be (200)
+        contenu should be (__)
       }
 
       case _ => fail("ne doit pas être vide")

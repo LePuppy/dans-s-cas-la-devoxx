@@ -56,7 +56,7 @@ class e1_classes extends HandsOnSuite {
   * Dans les cas où l'on a un paramètre mutable, on obtient naturellement un getter et un setter
   */
   exercice("Le paramètre var définit un getter et un setter") {
-    var aClass = new ClassWithVarParameter("description goes here")
+    val aClass = new ClassWithVarParameter("description goes here")
     aClass.description should be(__)
 
     aClass.description = "new description"

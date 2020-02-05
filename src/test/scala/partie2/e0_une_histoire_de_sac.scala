@@ -23,6 +23,9 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
      *
      * @param fonction la fonction a appliquer à contenu
      * @return un Sac
+     *
+     * Pour faire référence à l'objet dans la définition de la classe (et dans les fonctions définies à l'intérieur),
+     * il existe le mot-clé 'this'
      */
     def map(fonction:Int => Int):Sac = ???
 
@@ -55,7 +58,7 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
 
     val monPetitSacDeZero = Sac(0)
 
-    monPetitSacDeZero.contenu should be(0)
+    monPetitSacDeZero.contenu should be(__)
 
     monPetitSacDeZero.copy(1) should be(__)
 
@@ -75,11 +78,11 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
     def incrémenteAvecDef(i:Int) = i + 1
 
 
-    incrémente(0) should be(1)
+    incrémente(0) should be(__)
 
     val monPetitSacDeZero = Sac(0)
 
-    monPetitSacDeZero.map(incrémente).contenu should be(1)
+    monPetitSacDeZero.map(incrémente).contenu should be(__)
   }
 
   exercice("je peux appliquer une expression en for sur mon sac") {
@@ -123,7 +126,7 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
      * monPetitSacDeDeux.flatMap{ p => monGrosSacDeCent.map(g => p *g))
      */
 
-    l_union_de_mes_sac.contenu should be(200)
+    l_union_de_mes_sac.contenu should be(__)
   }
 
 }

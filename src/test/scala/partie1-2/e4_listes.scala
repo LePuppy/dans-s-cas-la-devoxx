@@ -74,7 +74,7 @@ class e4_listes extends HandsOnSuite {
     // multiplie par 3 chaque élément de la liste
     // La fonction map permet de faire une opération sur chaque élément d’une collection.
     // De plus, map renvoie une copie de la collection appelante en appliquant la fonction
-    // f passée en paramètre à chaque élément.
+    // passée en paramètre à chaque élément.
     a.map {v => v * 3} should equal(__)
 
     // conserve tous les multiple de 3
@@ -83,7 +83,7 @@ class e4_listes extends HandsOnSuite {
     // conserve les nombres qui ne sont pas multiples de 5
     val c = List(1, 2, 5, 8, 9)
     val b = c.filterNot(v => v % 5==0)
-    c should equal(List(1, 2, 5, 8, 9)) // les listes sont immuables par défaut !
+    c should equal(__) // les listes sont immuables par défaut !
     b should equal(__)
   }
 

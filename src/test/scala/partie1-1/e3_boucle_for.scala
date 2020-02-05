@@ -54,7 +54,7 @@ class e3_boucle_for extends HandsOnSuite {
   * Une boucle for peut générer une liste, sur laquelle on peut appliquer des fonctions
   * Le mot clé 'yield' est utilisé pour retourner un élément et passer à l’itération suivante.
   */
-  exercice("Les boucles for peuvent produire une liste, peuvent être sommée facilement") {
+  exercice("Les boucles for peuvent produire une liste et peuvent être sommée facilement") {
     
     
     val quelqueNombres = 0 until 10
@@ -87,6 +87,7 @@ class e3_boucle_for extends HandsOnSuite {
       y <- yValues
     }
     yield (x, y)
+    // Commence-t-on à 0 ou à 1 ?
     coordinates(4) should be(__)
   }
 
