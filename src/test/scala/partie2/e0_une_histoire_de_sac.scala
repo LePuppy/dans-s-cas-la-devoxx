@@ -20,11 +20,14 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
      * @param fonction la fonction a appliquer à contenu
      * @return un Sac
      *
+     
+     * La fonction map ci-dessous renvoie un Sac auquel on applique la fonction "fonction" (qui à un Int renvoie un Int) à ses arguments.
      * Pour faire référence à l'objet dans la définition de la classe (et dans les fonctions définies à l'intérieur),
      * il existe le mot-clé 'this'
      *
-     * La fonction map ci-dessous doit renvoyer un Sac auquel la fonction anonyme Int: => Int (qui à un Int renvoie un Int) a été appliquée.
+     * Aide pour cette première fonction: il faut donc utiliser les mots clés: "this", "Sac", "fonction" et "contenu".
      */
+
     def map(fonction:Int => Int):Sac = ???
 
    /**

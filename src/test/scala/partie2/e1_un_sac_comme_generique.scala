@@ -4,9 +4,13 @@ import support.HandsOnSuite
 
 class e1_un_sac_comme_generique  extends  HandsOnSuite {
 
+ // Dans cette partie on manipule toujours des Sacs dont on précise le type qu'ils contiennent et qu'on manipule avec des fonctions comme map ou flatMap.  
+ // Sac[A] est un "Sac de A" . Par exemple, Sac[Boule] est un Sac de ... ? Si vous avez deviné, vous êtes prêt pour la suite.
+
   case class Sac[A](contenu:A) {
 
-    def map[B](fonction: A => B):Sac[B] = ???
+    // Petite aide pour le premier
+    def map[B](fonction: A => B):Sac[B] = Sac(fonction(this.contenu))
 
     def flatMap[B](fonction: A => Sac[B]):Sac[B] = ???
 
