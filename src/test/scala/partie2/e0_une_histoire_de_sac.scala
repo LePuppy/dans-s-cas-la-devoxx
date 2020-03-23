@@ -17,23 +17,17 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
   case class Sac(contenu:Int) {
 
     /**
-     * Certains appellent cette API : Functor , un mélange de terminator et de fonction.
-     * Ces gens là ont en général une barbe et font un peu de théorie de catégorie.
-     *
-     *
      * @param fonction la fonction a appliquer à contenu
      * @return un Sac
      *
      * Pour faire référence à l'objet dans la définition de la classe (et dans les fonctions définies à l'intérieur),
      * il existe le mot-clé 'this'
+     *
+     * La fonction map ci-dessous doit renvoyer un Sac auquel la fonction anonyme Int: => Int (qui à un Int renvoie un Int) a été appliquée.
      */
     def map(fonction:Int => Int):Sac = ???
 
-   /**  Honnêtement, ce n'est pas le concept le plus simple mais il faut se lancer !!! :)
-     *
-     *   Les individus cités plus haut ont aussi un nom pour cette API : Bind.
-     *   A croire que ces individus ont une recette miracle pour trouver des noms à tout.
-     *
+   /**
      *  Tout d’abord un petit rappel sur la fonction flatten, puisque “flatmap” n’est rien
      *  d’autre que la combinaison des fonctions flatten et map.
      *  L’opération
@@ -47,6 +41,7 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
      (ici Sac) entre eux...
      * @return un Sac !
      *
+     * La fonction flatMap ci-dessous renvoie un Sac auquel on a appliqué la fonction anonyme Int => Sac (qui à un Int renvoie un Sac)
      */
     def flatMap(fonction:Int => Sac):Sac = {
       ???
@@ -71,7 +66,7 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
   exercice("je peux appliquer une fonction à l'intérieur de mon sac") {
     /**
      *
-     * Pour passer ce test il faut implémenter la fonction Map plus haut
+     * Pour passer ce test (deuxième should be) il faut implémenter la fonction Map plus haut
      */
     val incrémente:(Int => Int) = (i:Int) => i + 1
     //l'équivalent avec def est :
