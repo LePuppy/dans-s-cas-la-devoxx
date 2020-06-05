@@ -10,10 +10,15 @@ class e2_un_sac_algebrique extends HandsOnSuite {
    * Cela veut dire que Sac est forcement un SacVide ou un SacPlein.
    */
 
-  /*
+  /**
   *   Alors là vous avez peut-être remarqué les mots sealed et trait :
   *     - trait est le mot-clé utilisé pour définir l'équivalent d'une interface en Java.
   *       Il est cependant possible d'implémenter des méthodes dans un trait.
+   *      Cela permet de créer des sous types mais sans créer de classe de base.
+   *      Exemple : trait Animal
+   *      case class Vertebre
+   *      case class Mamifere
+   *      etc...
   *
   *     - sealed est un mot clé utilisé devant un trait. Le compilateur ne regardera que les case classes
   *       étendant le trait présent dans ce fichier source là, et si des cas manquent lors du Pattern
@@ -21,6 +26,12 @@ class e2_un_sac_algebrique extends HandsOnSuite {
   *
   */
   sealed trait Sac {
+
+    /**
+     *
+     * Ici on définit différentes méthodes pour le trait Sac sans pour autant les implémenter i.e. définir le
+     * traitement qu'elles réalisent
+     */
 
     def map(fonction:Int => Int):Sac
 
@@ -31,10 +42,25 @@ class e2_un_sac_algebrique extends HandsOnSuite {
     def contenuOuSinon(replacement:Int):Int
 
   }
-
+  /**
+   *
+   * On définit l'objet Sac ainsi que les case object SacVide et SacPlein
+   * L'utilisation du case ici permet de définir tous les types de Sacs ; un Sac est soit vide, soit plein
+   */
   object Sac {
     def apply(contenu:Int):Sac = SacPlein(contenu)
   }
+
+  /**
+   *
+   * Il faut implémenter les méthodes Cf parties précédentes
+   *
+   * Remarque :
+   * Appliquer une fonction à une Sac ne va pas changer la nature du Sac : un SacVide restera un SacVide
+   * et ainsi pour un SacPlein
+   *
+   * Pour SacVide, avec un peu de bon sens, on comprend vite que c'est direct
+   */
 
   case object SacVide extends Sac {
 
@@ -69,8 +95,16 @@ class e2_un_sac_algebrique extends HandsOnSuite {
 
     val sacDeZero = Sac(0)
 
+    // Comme on l'utilise souvent dans l'exercice et en Scala, une petite explication sur le pattern matching :
+    // C'est un mécanisme qui permet de controller une valeur par rapport à un modèle. Une correspondance réussie permet
+    // également de déconstruire une valeur en sous éléments
 
     //Le sealed sur le trait Sac rend ce pattern matching exhaustif
+    // Il faut lire les lignes ci-dessous comme :
+    // "Pour la variable sacDeZero à laquelle j'applique la fonction map(x => x + 1) :
+    // - si le résultat est de type SacPlein avec un contenu "contenu", alors contenu doit valoir 1
+    // - si le résultat est de type SacVide, alors retourner une erreur (ce cas ne devrait pas arriver "normalement"
+    // mais on l'encapsule quand meme et c'est une bonne pratique)
     sacDeZero.map(x => x +1) match {
       case SacPlein(contenu) => contenu should be(1)
 
@@ -79,6 +113,7 @@ class e2_un_sac_algebrique extends HandsOnSuite {
 
     val sacVide=SacVide
 
+    // case _ permet d'encapsuler tous les autres cas
     sacVide.map(x=>x+1) match {
       case SacPlein(_) => fail("Cela ne devrait pas être un Sac Plein")
       case _ => Unit
