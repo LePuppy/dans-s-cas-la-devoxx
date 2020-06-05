@@ -9,8 +9,8 @@ class e1_un_sac_comme_generique  extends  HandsOnSuite {
 
   case class Sac[A](contenu:A) {
 
-    // Petite aide pour le premier
-    def map[B](fonction: A => B):Sac[B] = Sac(fonction(this.contenu))
+    // Cf partie précédente pour l'impémentation des deux méthodes
+    def map[B](fonction: A => B):Sac[B] = ???
 
     def flatMap[B](fonction: A => Sac[B]):Sac[B] = ???
 

@@ -8,7 +8,14 @@ import scala.collection
 *   Maintenant que vous êtes un peu plus familier avec la syntaxe et que vous avez vu quelques
 *   points clé de Scala, passons aux choses sérieuses avec ce premier exo...
 *
-*   Il faut implémenter les parties avec des ???
+*   En développement logiciel, une méthode s'applique à l'objet de la classe dans laquelle elle est définie
+*   et réalise un traitement spécifique.
+*   L'intéret de cette partie est d'implémenter des méthodes très pratiques comme map, filter et flatMap
+*   pour la classe Sac c'est-à-dire définir le traitement qu'elles réalisent pour un objet de type Sac et les
+*   paramètres qu'elles reçoivent.
+*   La particularité de ces trois méthodes est qu'elles reçoivent chacune une fonction en paramètre.
+*
+*   Il faut implémenter c'est-à-dire compléter les parties avec des ???
 *   mais avant cela il faut compléter les __ des tests en bas !
 *
 */
@@ -17,38 +24,89 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
   case class Sac(contenu:Int) {
 
     /**
-     * @param fonction la fonction a appliquer à contenu
-     * @return un Sac
-     *
-     
-     * La fonction map ci-dessous renvoie un Sac auquel on applique la fonction "fonction" (qui à un Int renvoie un Int) à ses arguments.
-     * Pour faire référence à l'objet dans la définition de la classe (et dans les fonctions définies à l'intérieur),
-     * il existe le mot-clé 'this'
-     *
-     * Aide pour cette première fonction: il faut donc utiliser les mots clés: "this", "Sac", "fonction" et "contenu".
+     * On veut implémenter la méthode map ci-dessous. En analysant la définition de la méthode, quelles informations
+     * obtient-on ? (Solution plus bas)
      */
-
     def map(fonction:Int => Int):Sac = ???
 
-   /**
-     *  Tout d’abord un petit rappel sur la fonction flatten, puisque “flatmap” n’est rien
-     *  d’autre que la combinaison des fonctions flatten et map.
-     *  L’opération
-     *       List(List(1, 3), List(2, 4)).flatten
+    /**
+     * On sait que :
+     * - map prend en paramètre une fonction qui se nomme 'fonction'
+     * - fonction manipule le type Int en entrée et renvoie le type Int
+     * - map renvoie un Sac
      *
-     *  renvoie la liste List[Int] suivante
-     *       List(1, 3, 2, 4)
-     *  La méthode flatten s’applique en fait à une liste de listes, et l'applatir en une liste.
+     * La méthode map permet donc d'appliquer n'importe quelle fonction Int => Int à un objet Sac et ce, peu importe
+     * ce qu'elle fait ! Incroyable non ?
      *
-     * @param fonction Hum hUm, la fonction à appliquer en fusionnant les contextes d'application
-     (ici Sac) entre eux...
-     * @return un Sac !
+     * Maintenant, il va falloir l'implémenter cette méthode map. Quelques conseils supplémentaires :
      *
-     * La fonction flatMap ci-dessous renvoie un Sac auquel on a appliqué la fonction anonyme Int => Sac (qui à un Int renvoie un Sac)
+     * Tip 1 :
+     * Comme l'objet Sac ne possède d'un attribut : "contenu" de type Int, fonction manipule seulement contenu.
+     * Pour récupérer la valeur de l'attribut d'un objet, on écrit : monObjet.attribut Cf exercice plus bas
+     *
+     * Tip 2 :
+     * A l'intérieur d'une classe, on fait référence à l'objet défini dans cette classe par le mot-clé "this"
+     *
+     *
+     * Es-tu maintenant capable de dire quels mots-clés tu vas utiliser pour implémenter map ?
+     *
+     * Toujours pas ?
+     *
+     *
+     *
+     * Bon allez : fonction, contenu, this et Sac
+     *
+     * (solution plus bas, essaye vraiment de trouver tout seul)
+     *
+     *
+     *
+     *
+     *
+     *
+     * ## Solution ##
+     * def map(fonction:Int => Int):Sac = Sac(fonction(this.contenu))
      */
-    def flatMap(fonction:Int => Sac):Sac = {
-      ???
-    }
+
+    /**
+     * Suivant : méthode flatMap
+     * Si tu as compris l'idée pour map, tu vas également comprendre à quoi sert flatMap
+     * Tout d’abord un petit rappel sur la fonction flatten, puisque “flatmap” n’est rien d’autre que la combinaison
+     * des fonctions flatten et map.
+     * L’opération
+     *      List(List(1, 3), List(2, 4)).flatten
+     *
+     * renvoie la liste List[Int] suivante :
+     *      List(1, 3, 2, 4)
+     * La méthode flatten s’applique en fait à une liste de listes, et applatit le tout en une liste.
+     *
+     * Maintenant qu'on a vu la méthodologie pour implémenter ces méthodes (bien analyser la définition de la méthode),
+     * je te laisse la refaire pour celle-ci.
+     * */
+    def flatMap(fonction:Int => Sac):Sac = ???
+
+    /**
+     * Tu n'as pas réussi ? Pas de soucis. Demande toi ceci : quelle est la différence avec la méthode map ?
+     *
+     * Exactement : fonction ici manipule un type Int et renvoie un type Sac (sa signature est : Int => Sac)
+     * flatMap, comme map, renvoie un Sac en sortie
+     *
+     * Que permet donc l'implémentation de flatMap ? Cf ligne 38
+     *
+     * -> flatMap permet d'appliquer à un Sac toute fonction Int => Sac et ce, quel que soit ce qu'elle réalise !
+     *
+     * Tip :
+     * A-t-on toujours besoin du mot-clé Sac comme pour map ? Attention à bien lire la signature de fonction
+     *
+     * (solution plus bas, essaye vraiment de trouver tout seul)
+     *
+     *
+     *
+     *
+     *
+     *
+     * ## Solution ##
+     * def flatMap(fonction: Int => Sac):Sac = fonction(this.contenu)
+     */
   }
 
 
@@ -56,7 +114,7 @@ class e0_une_histoire_de_sacs /* ou un sac de sac */ extends HandsOnSuite {
 
     val monPetitSacDeZero = Sac(0)
 
-    monPetitSacDeZero.contenu should be(__)
+    monPetitSacDeZero.contenu should be(0)
 
     monPetitSacDeZero.copy(1) should be(__)
 
